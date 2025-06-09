@@ -21,7 +21,7 @@ require.post('/register', async (req, res) => {
   try {
     const existingUser = await User.findOne({where: {name}});
     if (existingUser) {
-      return res.status(400).json({message: 'User already exists'}); // Добавлен return
+      return res.status(400).json({message: 'User already exists'}); 
     }
     const hashaedPassword = await bcrypt.hash(password, 10);
     // const infoA = await InfoA.create({name, description});
@@ -81,7 +81,6 @@ require.listen(PORT, () => {
 
 
 
-// Дальше идет жесткое добавление и удаление данных
 
 require.get('/infoA', async (req, res) => {
   try {
